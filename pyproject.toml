@@ -1,5 +1,19 @@
 [project]
 name = "living-bridge-os"
 version = "0.1.0"
-description = "Living Bridge OS v0.1"
+description = "Living Bridge OS - Multi-agent AI operating environment"
+readme = "README.md"
 requires-python = ">=3.10"
+dependencies = [
+    "fastapi",
+    "uvicorn",
+    "pydantic",
+    "sqlalchemy",
+    "alembic",
+    "streamlit",
+    "httpx",
+    "python-dotenv",
+]
+
+[tool.setuptools]
+packages = ["bridge"]
