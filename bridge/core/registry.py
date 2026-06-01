@@ -1,15 +1,18 @@
-from typing import Dict, Type
-from bridge.agents.base_agent import BaseAgent
+from typing import Dict
+from .orchestrator import Orchestrator
+from ..agents.base_agent import BaseAgent
 
 class AgentRegistry:
+    """Registry for managing available agents."""
+
     def __init__(self):
-        self.agents: Dict[str, Type[BaseAgent]] = {}
+        self.agents: Dict[str, BaseAgent] = {}
 
-    def register_agent(self, name: str, agent_class: Type[BaseAgent]):
-        self.agents[name] = agent_class
+    def register(self, agent: BaseAgent):
+        self.agents[agent.role.lower()] = agent
 
-    def get_agent(self, name: str) -> Type[BaseAgent]:
-        return self.agents.get(name)
-
-    def list_agents(self) -> list:
-        return list(self.agents.keys())
+    def get_orchestrator(self) -> Orchestrator:
+        orchestrator = Orchestrator()
+        for agent in self.agents.values():
+            orchestrator.register_agent(agent)
+        return orchestrator
