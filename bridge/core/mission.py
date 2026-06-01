@@ -5,7 +5,7 @@ from datetime import datetime
 class Mission(BaseModel):
     objective: str
     constraints: List[str] = []
-    agents: List[str] = ["architect", "explorer", "verifier", "analyst"]
+    agents: List[str] = ["architect", "explorer"]
     context: Optional[Dict[str, Any]] = None
 
 class AgentResponse(BaseModel):

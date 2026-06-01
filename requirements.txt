@@ -4,3 +4,5 @@ pydantic
 sqlalchemy
 streamlit
 python-dotenv
+anthropic
+openai
