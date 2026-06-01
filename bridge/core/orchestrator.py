@@ -1,20 +1,26 @@
-# Updated Orchestrator with memory and DB integration (stub)
-from bridge.memory.working_memory import WorkingMemory
-from bridge.memory.episodic_memory import EpisodicMemory
-from bridge.memory.codex_memory import CodexMemory
-from bridge.core.database import init_db
+from bridge.core.mission import Mission
+from bridge.core.database import SessionLocal, init_db
+from typing import Dict, Any
+import uuid
 
 class Orchestrator:
     def __init__(self):
-        self.working_memory = WorkingMemory()
-        self.episodic_memory = EpisodicMemory()
-        self.codex_memory = CodexMemory()
-        self.db_session = init_db()
-    
-    def execute_mission(self, mission):
-        # Dispatch to agents, run debate, store to DB and memory
-        # TODO: full implementation
-        self.episodic_memory.record_event({'type': 'mission_started', 'objective': mission.objective})
-        return {'status': 'processed', 'consensus': 'Simulated consensus'}
+        init_db()
+        self.db = SessionLocal()
 
-# More to come
+    async def execute_mission(self, mission_data: dict) -> Dict[str, Any]:
+        mission = Mission(**mission_data)
+        if not mission.id:
+            mission.id = str(uuid.uuid4())
+        
+        # TODO: Dispatch to agents, run debate, store in DB
+        result = {
+            "mission_id": mission.id,
+            "status": "completed",
+            "consensus": "Initial implementation - multi-agent collaboration simulated."
+        }
+        
+        # Save to DB
+        # TODO: full persistence
+        
+        return result

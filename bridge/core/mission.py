@@ -1,17 +1,15 @@
-from pydantic import BaseModel, Field
+from pydantic import BaseModel
 from typing import List, Optional, Dict, Any
 from datetime import datetime
-import uuid
 
 class Mission(BaseModel):
-    """Every user request becomes a mission."""
-    id: str = Field(default_factory=lambda: str(uuid.uuid4()))
+    id: Optional[str] = None
     objective: str
-    constraints: List[str] = Field(default_factory=list)
-    agents: List[str] = Field(default_factory=list)
+    constraints: List[str] = []
+    agents: List[str] = ["architect", "explorer", "verifier", "analyst"]
     status: str = "pending"
-    created_at: datetime = Field(default_factory=datetime.utcnow)
-    updated_at: datetime = Field(default_factory=datetime.utcnow)
+    created_at: datetime = datetime.now()
+    result: Optional[Dict[str, Any]] = None
 
     class Config:
-        from_attributes = True
+        json_encoders = {datetime: lambda v: v.isoformat()}

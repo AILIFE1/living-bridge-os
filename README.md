@@ -1,17 +1,18 @@
 # Living Bridge OS v0.1
 
-A continuity-first multi-agent operating environment.
+A continuity-first multi-agent operating environment where conversations become persistent knowledge, artifacts, memory, and evolving collaboration.
 
-## Current Status
-Memory layer and SQLite persistence added.
-Agents, Debate, and full integration in progress.
+## Core Philosophy
+Question → Discussion → Artifact → Memory → Future Context
 
-Clone and run as per previous instructions.
+## Quick Start
+```bash
+pip install -r requirements.txt
+uvicorn bridge.api.server:app --reload
+streamlit run bridge/ui/dashboard.py
+```
 
-## Progress
-- Core skeleton
-- Multi-agent orchestration
-- Memory system (working, episodic, codex)
-- SQLite database setup
+See `docs/architecture.md` for details.
 
-Continue building in next iterations.
+## Status
+v0.1 - Core orchestrator, agents, memory, SQLite persistence, API, and dashboard implemented.

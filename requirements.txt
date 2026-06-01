@@ -1,7 +1,8 @@
 fastapi
-uvicorn[standard]
-streamlit
+uvicorn
 pydantic
 sqlalchemy
+streamlit
+aiosqlite
 python-dotenv
 httpx

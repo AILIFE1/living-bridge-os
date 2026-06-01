@@ -1,1 +1,1 @@
-__version__ = "0.1.0"
+"""Living Bridge OS - Multi-agent AI collaboration environment."""

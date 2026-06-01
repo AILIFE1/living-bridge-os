@@ -1,34 +1,26 @@
-import sqlite3
 from sqlalchemy import create_engine, Column, Integer, String, Text, DateTime, JSON
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
+import os
 from datetime import datetime
 
 Base = declarative_base()
 
-class MissionModel(Base):
+class MissionDB(Base):
     __tablename__ = 'missions'
     id = Column(Integer, primary_key=True)
     objective = Column(String)
-    constraints = Column(Text)
     status = Column(String)
-    created_at = Column(DateTime, default=datetime.utcnow)
+    data = Column(JSON)
+    created_at = Column(DateTime, default=datetime.now)
 
-class ArtifactModel(Base):
-    __tablename__ = 'artifacts'
-    id = Column(Integer, primary_key=True)
-    artifact_id = Column(String, unique=True)
-    type = Column(String)
-    title = Column(String)
-    content = Column(Text)
-    timestamp = Column(DateTime, default=datetime.utcnow)
+# Add more tables later: artifacts, memories, etc.
 
-# Add more tables for memories, debates, etc.
+def get_db_url():
+    return os.getenv("DATABASE_URL", "sqlite:///living_bridge.db")
 
-def init_db(db_url='sqlite:///living_bridge.db'):
-    engine = create_engine(db_url)
-    Base.metadata.create_all(engine)
-    Session = sessionmaker(bind=engine)
-    return Session()
+engine = create_engine(get_db_url())
+SessionLocal = sessionmaker(bind=engine)
 
-print('Database initialized.')  # placeholder
+def init_db():
+    Base.metadata.create_all(bind=engine)
