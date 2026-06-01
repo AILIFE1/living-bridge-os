@@ -1,5 +1,5 @@
 from typing import Dict, Type
-from .base_agent import BaseAgent
+from bridge.agents.base_agent import BaseAgent
 
 class AgentRegistry:
     def __init__(self):
