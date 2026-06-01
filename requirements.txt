@@ -3,6 +3,4 @@ uvicorn
 pydantic
 sqlalchemy
 streamlit
-aiosqlite
 python-dotenv
-httpx
