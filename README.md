@@ -2,6 +2,16 @@
 
 **Continuity-first multi-agent AI operating environment**
 
-See full specification in the original build document.
+Conversations become persistent knowledge, artifacts, memory, and evolving collaboration.
 
-Repo initialized with core structure.
+The system is an operating environment for human-mediated collaboration between multiple AI systems (Claude, Grok, OpenAI, Gemini).
+
+## Quick Start
+
+```bash
+pip install -r requirements.txt
+uvicorn bridge.api.server:app --reload
+streamlit run bridge/ui/dashboard.py
+```
+
+Full implementation in progress based on the Master Build Specification.

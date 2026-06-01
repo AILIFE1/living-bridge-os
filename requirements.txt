@@ -2,7 +2,9 @@ fastapi
 uvicorn[standard]
 pydantic
 sqlalchemy
-streamlit
+alembic
+python-dotenv
 anthropic
 openai
 google-generativeai
+streamlit
