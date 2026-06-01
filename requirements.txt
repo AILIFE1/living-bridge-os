@@ -1,0 +1,8 @@
+fastapi
+uvicorn[standard]
+pydantic
+sqlalchemy
+streamlit
+anthropic
+openai
+google-generativeai
