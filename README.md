@@ -1,17 +1,24 @@
 # Living Bridge OS v0.1
 
-**Continuity-first multi-agent AI operating environment**
+**A continuity-first multi-agent AI operating environment**
 
-Conversations become persistent knowledge, artifacts, memory, and evolving collaboration.
+Conversations → Discussion → Artifact → Memory → Future Context
 
-The system is an operating environment for human-mediated collaboration between multiple AI systems (Claude, Grok, OpenAI, Gemini).
+The system orchestrates Claude (Architect), Grok (Explorer), OpenAI (Verifier), Gemini (Analyst) in a persistent, collaborative workspace.
 
-## Quick Start
-
+## Installation
 ```bash
+git clone https://github.com/AILIFE1/living-bridge-os.git
+cd living-bridge-os
 pip install -r requirements.txt
-uvicorn bridge.api.server:app --reload
-streamlit run bridge/ui/dashboard.py
 ```
 
-Full implementation in progress based on the Master Build Specification.
+## Running
+- API: `uvicorn bridge.api.server:app --reload`
+- Dashboard: `streamlit run bridge/ui/dashboard.py`
+
+Full implementation following the Master Build Specification. Core modules are in place.
+
+See `docs/architecture.md` for details.
+
+**Status**: Building incrementally - v0.1 core in progress.
