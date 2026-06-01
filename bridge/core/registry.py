@@ -2,7 +2,7 @@ from typing import Dict, List
 from ..agents.base_agent import BaseAgent
 from ..agents.claude_agent import ClaudeAgent
 from ..agents.grok_agent import GrokAgent
-from ..agents.openai_agent import OpenAI Agent
+from ..agents.openai_agent import OpenAIAgent
 from ..agents.gemini_agent import GeminiAgent
 
 class AgentRegistry:
@@ -16,7 +16,7 @@ class AgentRegistry:
         """Register the four core agents with simulated responses (no real APIs yet)."""
         self.register(ClaudeAgent())
         self.register(GrokAgent())
-        self.register(OpenAI Agent())
+        self.register(OpenAIAgent())
         self.register(GeminiAgent())
 
     def register(self, agent: BaseAgent):
